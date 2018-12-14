@@ -40,9 +40,12 @@ def escape_shell_arg(shell_arg):
 
     return "%s" % shell_arg.replace('"', '\\"')
 
+
 def load_json(ctx, param, value):
     """Callback function for click option"""
-    return json.loads(value)
+    value = str.encode(value[1:])
+    return json.loads(base64.standard_b64decode(value).decode())
+
 
 @click.command()
 @click.option('--workflow-uuid',
