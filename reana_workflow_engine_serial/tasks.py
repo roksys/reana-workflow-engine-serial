@@ -11,6 +11,7 @@
 from __future__ import absolute_import, print_function
 
 import click
+import base64
 import json
 import logging
 import os
